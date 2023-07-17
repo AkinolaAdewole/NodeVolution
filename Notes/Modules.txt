@@ -50,3 +50,35 @@ To use ESM, you need to set the "type": "module" in your package.json file or us
 
 However, the CommonJS module system is still widely used and considered the default for most Node.js applications, 
 especially for older codebases and packages available on npm.
+
+
+Third-Party Modules: These are modules or libraries that are not part of the Node.js core and are developed by the Node.js community or 
+other developers. They extend the capabilities of Node.js by providing various functionalities, and they are usually hosted on the 
+npm (Node Package Manager) registry.
+To use Third-Party Modules, you need to install them using npm or yarn. Once installed, you can import and use them in your Node.js 
+application.
+
+Example of using a Third-Party Module:
+
+Step 1: Install the module using npm (or yarn) in your project directory:
+
+example: npm install axios
+
+const axios = require('axios');
+
+axios.get('https://api.example.com/data')
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error.message);
+  });
+
+
+In this example, we installed the axios module, which is a popular library for making HTTP requests. 
+We then used it to make an HTTP GET request to a sample API and handled the response using promises.
+
+Third-Party Modules greatly enhance the development process in Node.js by providing a vast ecosystem of pre-built functionalities that 
+can save time and effort for developers. They cover various areas such as web frameworks, database connectors, utility libraries, and 
+more. Before using a Third-Party Module, it's essential to review its documentation, maintainability, popularity, and 
+community support to ensure it meets your requirements and is reliable.
