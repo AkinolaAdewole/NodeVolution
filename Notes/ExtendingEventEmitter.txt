@@ -1,0 +1,37 @@
+In Node.js, you can create custom classes that extend the built-in EventEmitter class from the events module. By doing so, 
+you can make your custom classes emit events and allow other parts of your application to listen for and respond to those events.
+
+To extend the EventEmitter class, you need to use JavaScript's inheritance mechanism, which allows your custom class to inherit the 
+methods and properties of the EventEmitter.
+
+Here's an example of how to extend from EventEmitter in Node.js:
+
+const EventEmitter = require('events');
+
+class MyCustomEmitter extends EventEmitter {
+  constructor() {
+    super(); // Call the constructor of the EventEmitter class
+  }
+
+  performTask(task) {
+    // Perform some task...
+
+    // Emit an event with the result of the task
+    this.emit('taskCompleted', `Task '${task}' is completed.`);
+  }
+}
+
+// Create an instance of the custom emitter
+const myEmitter = new MyCustomEmitter();
+
+// Register an event listener for the 'taskCompleted' event
+myEmitter.on('taskCompleted', (message) => {
+  console.log(message);
+});
+
+// Perform the task using the custom emitter
+myEmitter.performTask('Do the dishes');
+
+
+Output:
+Task 'Do the dishes' is completed.

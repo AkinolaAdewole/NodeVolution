@@ -6,9 +6,23 @@ const {add,subtract}= require('./example/math.js');
 const path = require("node:path");
 const EventEmitter= require('node:events');
 
-const emitter= new EventEmitter()
+const emitter= new EventEmitter();
 
-emitter.emit()
+// Register an event listener for the 'order pizza' event
+emitter.on('order pizza', (size,topping) => {
+    console.log(`Order received, baking a ${size} pizza with ${topping}`);
+  });
+  
+  // Emit the 'order pizza' event
+  emitter.emit('order pizza','large', 'mushroom');
+
+
+
+  const pizzaShop =require('./example/pizzaShop.js');
+  const PizzaShop=new pizzaShop();
+  PizzaShop.order();
+  PizzaShop.displayOrderNumber();
+
 
 // console.log(add(2,3));
 // console.log(subtract(5,4));
