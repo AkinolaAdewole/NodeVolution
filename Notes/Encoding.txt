@@ -1,0 +1,41 @@
+In Node.js, encoding refers to the process of converting data from one format to another. It is commonly used when reading from or 
+writing to streams, files, or buffers. There are various encoding formats available in Node.js, and each serves a specific purpose. 
+Here are some commonly used encodings in Node.js:
+
+UTF-8: UTF-8 is the default encoding for text data in Node.js. It is a variable-width encoding that can represent all Unicode characters. 
+When working with text data, UTF-8 is typically the encoding you should use.
+
+ASCII: ASCII encoding represents only the first 128 ASCII characters (0 to 127) using a single byte for each character.
+
+Base64: Base64 encoding is used to convert binary data to a text format, mainly when dealing with binary files or data that cannot be 
+directly represented in a text format.
+
+Binary: Binary encoding allows you to read or write raw binary data without any conversion.
+
+When reading from or writing to files or streams in Node.js, you can specify the desired encoding as the second argument to the 
+relevant methods.
+
+
+Example of reading a file using UTF-8 encoding:
+
+const fs = require('fs');
+
+fs.readFile('file.txt', 'utf-8', (err, data) => {
+  if (err) {
+    console.error('Error reading file:', err);
+  } else {
+    console.log('File content (UTF-8):', data);
+  }
+});
+
+Example of reading a file using Base64 encoding:
+
+const fs = require('fs');
+
+fs.readFile('image.png', 'base64', (err, data) => {
+  if (err) {
+    console.error('Error reading file:', err);
+  } else {
+    console.log('File content (Base64):', data);
+  }
+});

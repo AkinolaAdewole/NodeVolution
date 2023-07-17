@@ -24,11 +24,13 @@ emitter.on('order pizza', (size,topping) => {
 
   const PizzaShop=new pizzaShop();
   const drinkMachine= new DrinkMachine();
-  
+
+
   PizzaShop.on('order', (size, topping)=>{
-    console.log(`We will deliver the ${size} of pizza with ${topping}`);
+    console.log(`We will deliver the ${size} pizza with ${topping}`);
+    drinkMachine.serveDrink(size);
   })
-  PizzaShop.order();
+  PizzaShop.order('large','topping');
   PizzaShop.displayOrderNumber();
 
 
