@@ -6,4 +6,5 @@ const subtract=(a,b)=>{
     return a-b;
 }
 
-module.exports={add, subtract};
+// module.exports={add, subtract};
+export default {add, subtract};
