@@ -39,3 +39,19 @@ fs.readFile('image.png', 'base64', (err, data) => {
     console.log('File content (Base64):', data);
   }
 });
+
+
+When writing to files or streams, you can also specify the desired encoding in the fs.writeFile() or fs.createWriteStream() methods.
+
+Example of writing to a file using UTF-8 encoding:
+
+const fs = require('fs');
+
+const content = 'Hello, this is some text data.';
+fs.writeFile('file.txt', content, 'utf-8', (err) => {
+  if (err) {
+    console.error('Error writing file:', err);
+  } else {
+    console.log('File has been written successfully.');
+  }
+});
