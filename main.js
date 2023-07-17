@@ -4,20 +4,25 @@
 
 const {add,subtract}= require('./example/math.js');
 const path = require("node:path");
+const EventEmitter= require('node:events');
 
-console.log(add(2,3));
-console.log(subtract(5,4));
+const emitter= new EventEmitter()
 
-console.log(__dirname);
-console.log(__filename);
-console.log(path.basename(__dirname));
-console.log(path.basename(__filename));
+emitter.emit()
 
-console.log(path.extname(__dirname));
-console.log(path.extname(__filename));
+// console.log(add(2,3));
+// console.log(subtract(5,4));
 
-console.log(path.parse(__dirname));
-console.log(path.parse(__filename));
+// console.log(__dirname);
+// console.log(__filename);
+// console.log(path.basename(__dirname));
+// console.log(path.basename(__filename));
 
-console.log(path.isAbsolute(__dirname));
-console.log(path.isAbsolute(__filename));
+// console.log(path.extname(__dirname));
+// console.log(path.extname(__filename));
+
+// console.log(path.parse(__dirname));
+// console.log(path.parse(__filename));
+
+// console.log(path.isAbsolute(__dirname));
+// console.log(path.isAbsolute(__filename));
