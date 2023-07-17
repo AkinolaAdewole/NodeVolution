@@ -21,8 +21,10 @@ emitter.on('order pizza', (size,topping) => {
   const pizzaShop =require('./example/pizzaShop.js');
   const DrinkMachine=require('./example/drinkMachine.js');
 
-  
+
   const PizzaShop=new pizzaShop();
+  const drinkMachine= new DrinkMachine();
+  
   PizzaShop.on('order', (size, topping)=>{
     console.log(`We will deliver the ${size} of pizza with ${topping}`);
   })
