@@ -1,0 +1,52 @@
+In Node.js, modules are a fundamental concept used to organize and structure code into reusable units. 
+A module is simply a file containing JavaScript code that defines functions, classes, or variables that can be imported and 
+used in other parts of the application. This modularity allows developers to break down large applications into smaller, 
+manageable pieces, making the codebase more maintainable and easier to understand.
+
+
+1.
+Core Modules: These are built-in modules that come bundled with Node.js and are part of its standard library. 
+Examples of core modules include fs (File System), http (HTTP server and client), path (path manipulation utilities), and 
+util (utility functions). Core modules can be accessed without the need for installation or additional configuration.
+
+To use a core module, you need to require it in your code like this:
+
+const fs = require('fs');
+
+
+
+2.
+Local Modules: These are user-defined modules that developers create to encapsulate specific functionalities. 
+Local modules are typically stored in separate files and can be imported into other files using the require() function.
+Example of a local module:
+
+// File: utils.js
+function add(a, b) {
+  return a + b;
+}
+
+function subtract(a, b) {
+  return a - b;
+}
+
+module.exports = { add, subtract };
+
+To use the above module in another file:
+
+// File: app.js
+const { add, subtract } = require('./utils');
+
+console.log(add(5, 3));       // Output: 8
+console.log(subtract(10, 5)); // Output: 5
+
+
+
+In this example, we created a local module in utils.js, 
+which exports two functions, add and subtract. In app.js, we import those functions using require('./utils').
+
+It's important to note that starting from Node.js version 14, you can also use ECMAScript modules (ESM) with the .mjs file extension. 
+In ESM, you use import and export statements, similar to modern JavaScript in the browser. 
+To use ESM, you need to set the "type": "module" in your package.json file or use the .mjs extension.
+
+However, the CommonJS module system is still widely used and considered the default for most Node.js applications, 
+especially for older codebases and packages available on npm.
