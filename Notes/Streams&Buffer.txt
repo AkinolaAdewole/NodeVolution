@@ -14,3 +14,46 @@ Transform: Special type of duplex stream that allows data to be modified while i
 
 
 Example of using a Readable stream to read data from a file:
+
+
+const fs = require('fs');
+
+const readableStream = fs.createReadStream('input.txt', 'utf8');
+
+readableStream.on('data', (chunk) => {
+  console.log('Received chunk:', chunk);
+});
+
+readableStream.on('end', () => {
+  console.log('Reading finished.');
+});
+
+readableStream.on('error', (err) => {
+  console.error('Error reading file:', err);
+});
+
+
+2.
+Buffers:
+Buffers are used to represent binary data in Node.js. They are essentially fixed-size chunks of memory that are used to store raw data, 
+such as images, audio, or binary files. Buffers are useful when you need to work with binary data, and they are commonly used with 
+streams to read or write binary data efficiently.
+
+Example of creating a Buffer and manipulating binary data:
+
+const buffer = Buffer.from('Hello', 'utf8');
+console.log(buffer); // <Buffer 48 65 6c 6c 6f>
+
+const hexData = buffer.toString('hex');
+console.log(hexData); // 48656c6c6f
+
+const base64Data = buffer.toString('base64');
+console.log(base64Data); // SGVsbG8=
+
+
+In this example, we create a Buffer from the string 'Hello' in UTF-8 encoding. We can then convert the buffer to its hexadecimal and 
+base64 representations.
+
+Both streams and buffers are important for handling data efficiently and effectively in Node.js. Streams enable working with data in 
+smaller chunks, making them more memory-friendly for large datasets. Buffers are used to handle binary data and are commonly used in 
+conjunction with streams when dealing with file I/O or network communication.
