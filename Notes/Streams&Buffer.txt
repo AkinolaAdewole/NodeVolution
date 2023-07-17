@@ -1,0 +1,16 @@
+Streams and Buffers are important concepts in Node.js that are used to efficiently handle and manipulate data, especially when dealing 
+with large datasets or when working with binary data.
+
+Streams:
+Streams are a way to handle reading from and writing to data sources or destinations in Node.js in a more efficient and memory-friendly 
+manner. Streams allow you to process data piece by piece (chunk) instead of loading the entire data into memory at once. 
+This is particularly useful when dealing with large files or network data.
+Node.js provides four types of streams:
+
+Readable: Used for reading data from a source (e.g., files, HTTP responses).
+Writable: Used for writing data to a destination (e.g., files, HTTP requests).
+Duplex: Streams that are both readable and writable.
+Transform: Special type of duplex stream that allows data to be modified while it is being read or written.
+
+
+Example of using a Readable stream to read data from a file:
