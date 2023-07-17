@@ -1,0 +1,54 @@
+
+In Node.js (and JavaScript in general), objects are reference types. This means that when you create an object and assign it to a 
+variable, the variable does not actually hold the object itself but rather holds a reference (or memory address) to where the object is 
+stored in memory. This behavior applies to objects, arrays, and functions.
+
+When you assign an object to a new variable or pass it as a function argument, you are creating a new reference to the same object in 
+memory. As a result, any changes made to the object through one reference will affect the object accessed through another reference.
+
+Let's see some examples to illustrate this concept:
+
+// Creating an object
+const person = { name: 'John', age: 30 };
+
+// Assigning `person` object to a new variable `personCopy`
+const personCopy = person;
+
+// Modifying the `personCopy` object
+personCopy.age = 31;
+
+console.log(person.age); // Output: 31
+
+
+In this example, both person and personCopy refer to the same object in memory. When we modify the age property of personCopy, 
+it affects the original person object because they are references to the same object.
+
+This behavior is crucial to understand when working with objects and can be advantageous in certain scenarios, such as passing 
+complex data structures between functions without creating copies. However, it can also lead to unexpected side effects if you are not 
+ careful.
+
+If you want to create a new copy of an object that is completely independent of the original, you need to create a deep copy of the 
+object, not just assign it to a new variable. There are various ways to create a deep copy, such as using the JSON.parse() and 
+JSON.stringify() methods or third-party libraries like lodash.
+
+Here's an example of creating a deep copy using JSON.parse() and JSON.stringify():
+
+const person = { name: 'John', age: 30 };
+
+// Create a deep copy of the `person` object
+const personCopy = JSON.parse(JSON.stringify(person));
+
+// Modify the `personCopy` object
+personCopy.age = 31;
+
+console.log(person.age); // Output: 30
+console.log(personCopy.age); // Output: 31
+
+
+
+
+In this case, personCopy is now a completely independent object, and modifying it does not affect the original person object. 
+However, creating a deep copy using JSON.stringify() and JSON.parse() can be less efficient for large and complex objects.
+
+Overall, understanding object references in Node.js is crucial to avoid unintended side effects and to manage data manipulation 
+correctly, especially when working with complex data structures.
