@@ -9,3 +9,8 @@ const fileContent=fs.readFileSync("./Notes/FsModule.txt","utf-8");
 console.log(fileContent);
 
 //CallBack Method
+fs.readFile("./Notes/FsModule.txt",(error, data)=>{
+    if(error){
+        console.log(error);
+    }
+})
