@@ -6,6 +6,8 @@ methods and properties of the EventEmitter.
 
 Here's an example of how to extend from EventEmitter in Node.js:
 
+
+
 const EventEmitter = require('events');
 
 class MyCustomEmitter extends EventEmitter {
@@ -35,3 +37,16 @@ myEmitter.performTask('Do the dishes');
 
 Output:
 Task 'Do the dishes' is completed.
+
+
+
+In this example, we create a custom class MyCustomEmitter that extends from EventEmitter. 
+The MyCustomEmitter class has a method performTask() that simulates performing some task and then emits a 'taskCompleted' event with 
+a message as the event data.
+
+When we create an instance of MyCustomEmitter (myEmitter), we can use its methods, including the performTask() method, and 
+we can also register event listeners for its custom events using the .on() method.
+
+By extending from EventEmitter, you can create more complex and event-driven components in your Node.js applications. 
+This pattern is especially useful for building 
+scalable and modular systems where different parts of the application can communicate and respond to events without tight coupling.
