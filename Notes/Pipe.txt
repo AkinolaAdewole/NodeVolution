@@ -1,0 +1,36 @@
+In Node.js, pipes are a powerful mechanism provided by streams to simplify the handling of data flow between readable and writable 
+streams. They allow you to connect the output of one stream as the input of another, creating a seamless data transfer process.
+
+The pipe() method is used to establish a pipe between two streams. It takes a single argument, which is the destination writable stream. 
+When you call pipe() on a readable stream, it connects the data events of the readable stream to the writable stream, automatically 
+handling data flow for you.
+
+The syntax for using the pipe() method is as follows:
+
+readableStream.pipe(writableStream);
+
+Here's an example of using pipes to copy the contents of one file to another:
+
+const fs = require('fs');
+
+const sourceFilePath = 'path/to/source/file.txt';
+const destinationFilePath = 'path/to/destination/file.txt';
+
+const readableStream = fs.createReadStream(sourceFilePath);
+const writableStream = fs.createWriteStream(destinationFilePath);
+
+readableStream.pipe(writableStream);
+
+readableStream.on('end', () => {
+  console.log('File copy complete.');
+});
+
+In this example, we create a readable stream using fs.createReadStream() to read data from sourceFilePath, and a writable stream using 
+fs.createWriteStream() to write data to destinationFilePath. We then use the pipe() method to connect the two streams.
+
+The pipe() method automatically handles the data transfer from the readable stream to the writable stream, ensuring that the data is 
+efficiently and safely transmitted in chunks, which is particularly useful for large files. When the readable stream reaches 
+its end (all data has been transferred), it emits the 'end' event, allowing you to perform any necessary cleanup or additional tasks.
+
+Pipes provide a more concise and efficient way to work with streams and are especially useful when you need to perform simple data 
+transformations, copying files, or passing data between various streams in Node.js applications.
