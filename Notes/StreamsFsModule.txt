@@ -41,3 +41,10 @@ readableStream.on('end', () => {
   writableStream.end();
 });
 
+
+In this example, we use fs.createReadStream() to create a readable stream that reads data from sourceFilePath, and 
+fs.createWriteStream() to create a writable stream that writes data to destinationFilePath. We then listen for the 'data' event on the 
+readable stream to receive chunks of data and write them to the writable stream.
+
+Keep in mind that using streams is particularly beneficial for handling large files or working with data asynchronously, as it allows 
+you to process data in smaller chunks, rather than loading the entire file into memory at once.
