@@ -1,6 +1,10 @@
 const http = require("http");
 
-http.createServer((req,res)=>{
+const server=http.createServer((req,res)=>{
     res.writeHead(200);
     res.end('Hello World');
+})
+
+server.listen(3000,()=>{
+    console.log('server running on 3000');
 })
