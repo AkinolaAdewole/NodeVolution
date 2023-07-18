@@ -1,0 +1,37 @@
+In Node.js, the event loop manages multiple queues to handle different types of tasks and events efficiently. 
+These queues are integral to the event-driven, non-blocking nature of Node.js. Let's explore some of the important queues in Node.js:
+
+1.
+Timer Queue: The Timer Queue handles timers scheduled using functions like setTimeout() and setInterval(). When a timer expires, 
+its associated callback function is added to the event loop for execution.
+
+2.
+Promise Queue: The Promise Queue handles the execution of resolved or rejected promises. When a promise is resolved or rejected, 
+its corresponding then() or catch() callbacks are added to the Promise Queue.
+
+3.
+NextTick Queue: The NextTick Queue is a special queue that has a higher priority than other queues. Functions scheduled using 
+process.nextTick() are added to this queue. They are executed immediately after the current operation completes, before any other 
+queued operations.
+
+4.
+I/O Queue: The I/O Queue handles I/O-related callbacks, such as those associated with file system operations, network requests, and 
+other asynchronous I/O tasks.
+
+5.
+Close Queue: The Close Queue handles the callbacks associated with closing events, like when a socket or server is closed. These 
+callbacks are executed after the event loop finishes processing all the other queues.
+
+6.
+Microtask Queue (also known as Job Queue): This queue handles microtasks, such as promises and 
+certain API callbacks (e.g., process.nextTick() and queueMicrotask()). Microtasks are executed after each phase of the event loop, 
+ensuring that promises and other microtasks are resolved before the event loop moves on to the next cycle.
+
+
+
+The event loop follows a specific order of processing these queues in each iteration. It first processes the Timer Queue, 
+then moves on to the I/O Queue, then the Microtask Queue, and finally the Close Queue.
+
+It's essential to understand the order of processing and the behavior of each queue to write efficient and predictable asynchronous 
+code in Node.js. This event loop mechanism ensures that long-running or blocking tasks do not hinder the execution of other operations 
+and keeps the application responsive and performant.
