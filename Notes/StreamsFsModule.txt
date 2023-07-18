@@ -1,0 +1,43 @@
+Streams in the fs module are instances of EventEmitter and are used to handle data flow between input and output in a chunked manner. 
+They allow you to work with data in small pieces, reducing memory usage and enabling more efficient processing of large files.
+
+
+There are four types of streams in Node.js:
+
+1.
+Readable Streams: These streams are used for reading data from a source, such as a file or network connection. 
+They emit 'data' events as chunks of data become available. Examples of readable streams include fs.createReadStream() and http. 
+IncomingMessage.
+
+2.
+Writable Streams: These streams are used for writing data to a destination, such as a file or network connection. 
+You can use them to send data in smaller chunks, making it suitable for large files. Examples of writable streams include 
+fs.createWriteStream() and http.ServerResponse.
+
+3.
+Duplex Streams: Duplex streams are both readable and writable. They allow data to flow in both directions. 
+Examples include net.Socket and tls.TLSSocket.
+
+4.
+Transform Streams: Transform streams are a type of duplex stream that allows you to modify or transform data while it's being read or 
+written. Examples include zlib.createGzip() and crypto.createCipher().
+
+
+Here's an example of using readable and writable streams to copy the contents of one file to another:
+
+const fs = require('fs');
+
+const sourceFilePath = 'path/to/source/file.txt';
+const destinationFilePath = 'path/to/destination/file.txt';
+
+const readableStream = fs.createReadStream(sourceFilePath);
+const writableStream = fs.createWriteStream(destinationFilePath);
+
+readableStream.on('data', (chunk) => {
+  writableStream.write(chunk);
+});
+
+readableStream.on('end', () => {
+  writableStream.end();
+});
+
