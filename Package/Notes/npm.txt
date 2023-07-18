@@ -1,0 +1,25 @@
+npm stands for "Node Package Manager." It is a package manager for the JavaScript programming language and is primarily used to manage
+software dependencies and packages in Node.js projects. npm allows developers to easily install, update, and remove packages from their 
+projects and provides a vast collection of open-source libraries and tools that can be utilized to extend the functionality of their 
+applications.
+
+With npm, developers can specify the dependencies required for their projects in a configuration file called "package.json." 
+This file contains information about the project, including its name, version, description, author, and, most importantly, a list of 
+dependencies with their specific version requirements. When a developer initiates an npm installation, the package manager reads the 
+package.json file and downloads and installs all the specified dependencies recursively.
+
+Some common npm commands include:
+
+npm install: Installs all the dependencies specified in the package.json file.
+npm install <package-name>: Installs a specific package and adds it to the dependencies list in the package.json file.
+npm update: Updates all the packages to their latest compatible versions based on the version requirements specified in the 
+package.json file.
+
+npm uninstall <package-name>: Uninstalls a specific package and removes it from the dependencies list in the package.json file.
+npm init: Initializes a new Node.js project and generates a package.json file interactively, allowing you to set various 
+project-related configurations.
+
+npm search <keyword>: Searches the npm registry for packages that match the provided keyword.
+
+npm run <script-name>: Executes a custom script defined in the package.json file, useful for running tasks like building, testing, or 
+starting the application.
