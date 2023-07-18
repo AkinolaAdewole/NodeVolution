@@ -7,3 +7,8 @@ const readableStreams=fs.createReadStream('./Notes/Test.txt',{
 });
 
 const writeableStreams=fs.createWriteStream('./Notes/Test2.txt');
+
+readableStreams.on('data',(chunk)=>{
+    console.log(chunk);
+    writeableStreams.write(chunk);
+});
