@@ -1,0 +1,25 @@
+The package.json file is a configuration file used in Node.js projects to define various aspects of the project, 
+including its name, version, dependencies, scripts, and other metadata. It is a JSON (JavaScript Object Notation) file that resides in
+ the root directory of a Node.js project.
+
+Here is an example of a basic package.json file:
+
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "description": "My Node.js project",
+  "author": "Your Name",
+  "dependencies": {
+    "express": "^4.17.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12",
+    "eslint": "^7.32.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "lint": "eslint ."
+  }
+}
